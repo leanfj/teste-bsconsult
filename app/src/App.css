@@ -1,12 +1,19 @@
-.app {
+.container {
   max-width: 960px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.separador {
+  border: none;
+  height: 2px;
+  background-color: #ffa015;
+}
 
 .main {
   display: grid;
   grid-template-areas: 'Aside Vitrine';
   grid-template-columns: 20% auto;
-  grid-gap: 10px; }
+}
 
 .sub-header {
   background-color: #aac28b; }

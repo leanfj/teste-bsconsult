@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import logo from './images/logo-profite.png';
 import './App.css';
+
+//Components
+import Header from './components/Header/Header'
 
 class App extends Component {
   render() {
     return (
       <div className="app">
-        <header className="header">
-          <img src={logo} className="App-logo" alt="logo" />
+        <header className="container">
+          <Header/>
         </header>
-        <section className="sub-header">
+        <hr className="separador"/>
+        <section className="container sub-header">
           <div>Sub header</div>
         </section>
-        <main className="main">
+        <main className="container main">
           <aside className="aside">
             <div>Aside filtres</div>
           </aside>
@@ -21,7 +24,7 @@ class App extends Component {
           </section>
         </main>
         <footer className="footer">
-          <div>Footer content</div>
+          <div className="container">Footer content</div>
         </footer>
       </div>
     );
