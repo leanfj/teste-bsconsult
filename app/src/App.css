@@ -1,0 +1,60 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.separador {
+  border: none;
+  height: 2px;
+  background-color: #ffa015;
+  margin: 0;
+}
+
+.main {
+  display: grid;
+  grid-template-areas: 'Aside Vitrine';
+  grid-template-columns: 20% auto;
+}
+
+.aside {
+  grid-area: Aside;
+}
+
+@media only screen and (max-width: 800px) {
+  .main {
+    display: grid;
+    grid-template-areas: 'Vitrine';
+    grid-template-columns: auto;
+  }
+  .aside {
+      display: none;
+  }
+}
+
+.vitrine {
+  grid-area: Vitrine;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom:280px;
+
+}
+.button__more{
+  position: absolute;
+  bottom: -109px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #ffa015;
+  padding: 15px 80px;
+  text-transform: uppercase;
+
+}
+
+.footer {
+  background-color: #050505;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 0;
+}

@@ -1,0 +1,19 @@
+.subheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+.subheader__secao {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.subheader__select {
+  background: none;
+  border-color: #000000;
+  padding: 5px;
+
+}

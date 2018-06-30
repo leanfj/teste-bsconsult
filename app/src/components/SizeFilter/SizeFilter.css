@@ -1,0 +1,34 @@
+.sizefilter form{
+  display: flex;
+  flex-wrap: wrap;
+}
+.sizefilter__titulo {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.sizefilter__input input {
+  display: none;
+}
+
+.sizefilter__input {
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #9e9c9c;
+  color: #9e9c9c;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+
+.sizefilter__input--selected {
+  border-color: #ffa015;
+  color: #292929;
+}
+

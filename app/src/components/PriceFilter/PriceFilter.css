@@ -1,0 +1,43 @@
+.pricefilter__titulo {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.pricefilter__input {
+  display: block;
+  font-size: 14px;
+  color: #292929;
+  font-weight: 400;
+  position: relative;
+  padding: 5px 0 5px 30px;
+}
+
+.pricefilter__input input {
+  display: none;
+}
+
+.pricefilter__input::before {
+  content: "";
+  width: 19px;
+  height: 19px;
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+  background: #fff;
+  display: inline-block;
+  left: 0;
+  margin-right: 5px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.pricefilter__input--selected::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background: #ffa015;
+  left: 5px;
+  top: 10px;
+  display: inline-block;
+  position: absolute;
+  z-index: 9;
+}
