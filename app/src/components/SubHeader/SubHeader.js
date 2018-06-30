@@ -8,7 +8,10 @@ class SubHeader extends Component {
         <h4 className="subheader__secao">
           Vestidos
         </h4>
-
+        <div className="subheader__filters">
+          <button className="button__filtros">Filtros</button>
+          <button className="button__ordem">Ordenar</button>
+        </div>
         <select name="ordenacao" id="" className="subheader__select">
           <option value="" disabled>Ordernar por</option>
           <option value="1">Mais recentes</option>

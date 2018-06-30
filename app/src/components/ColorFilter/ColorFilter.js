@@ -27,8 +27,8 @@ class ColorFilter extends Component {
             <input type="checkbox" name="laranja" id="laranja" /> 
             Laranja
           </label>
-          <a  href="#" className="colorfilter__vermais">Ver todas as core
-          <i className="fas fa-angle-down"/> </a>
+          <button className="colorfilter__vermais">Ver todas as core
+          <i className="fas fa-angle-down"/> </button>
         </form>
       </div>
     );

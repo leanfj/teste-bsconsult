@@ -1,0 +1,191 @@
+{
+  "produtos":[
+    {
+      "id": 1,
+      "nome": "bata bordada",
+      "imagem": "./img-produto/produto1.jpg",
+      "cor": "amarelo",
+      "tamanhos": ["p", "m", "g", "gg" ],
+      "preco": 123,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 2,
+      "nome": "chapéu de praia com fivela",
+      "imagem": "./img-produto/produto2.jpg",
+      "cor": "amarelo",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 569,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 3,
+      "nome": "vestido texturizado",
+      "imagem": "./img-produto/produto3.jpg",
+      "cor": "azul",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 523,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 4,
+      "nome": "bata bordada",
+      "imagem": "./img-produto/produto4.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 666,
+      "valorDesconto": 10,
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 5,
+      "nome": "chapéu de praia com fivela",
+      "imagem": "./img-produto/produto5.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 777,
+      "valorDesconto": 5,
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 6,
+      "nome": "vestido texturizado",
+      "imagem": "./img-produto/produto6.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 124,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 7,
+      "nome": "bata bordada",
+      "imagem": "./img-produto/produto7.jpg",
+      "cor": "branco",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 230,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 8,
+      "nome": "chapéu de praia com fivela",
+      "imagem": "./img-produto/produto8.jpg",
+      "cor": "amarelo",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 658,
+      "valorDesconto": 3,
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 9,
+      "nome": "vestido texturizado",
+      "imagem": "./img-produto/produto9.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 495,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 10,
+      "nome": "bata bordada",
+      "imagem": "./img-produto/produto1.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 203,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 11,
+      "nome": "chapéu de praia com fivela",
+      "imagem": "./img-produto/produto2.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 125,
+      "valorDesconto": 50,
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 12,
+      "nome": "vestido texturizado",
+      "imagem": "./img-produto/produto3.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 596,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 13,
+      "nome": "chapéu de praia com fivela",
+      "imagem": "./img-produto/produto4.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 596,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 14,
+      "nome": "bata bordada",
+      "imagem": "./img-produto/produto5.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 596,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    },
+    {
+      "id": 15,
+      "nome": "vestido texturizado",
+      "imagem": "./img-produto/produto6.jpg",
+      "cor": "verde",
+      "tamanhos": ["p", "m", "g" ],
+      "preco": 596,
+      "valorDesconto": "",
+      "diponivel": true,
+      "tipo": "vestido"
+    }
+  ],
+  "cores": [
+    "amarelo",
+    "azul",
+    "branco",
+    "cinza",
+    "laranja",
+    "preto",
+    "vermelho"
+  ],
+  "tamanhos": [
+    "p",
+    "m",
+    "g",
+    "gg",
+    "u",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46"
+  ]
+}

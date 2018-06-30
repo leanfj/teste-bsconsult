@@ -15,17 +15,18 @@
   grid-template-areas: 'Aside Vitrine';
   grid-template-columns: 20% auto;
 }
-
-.aside {
-  grid-area: Aside;
-}
-
 @media only screen and (max-width: 800px) {
   .main {
     display: grid;
     grid-template-areas: 'Vitrine';
     grid-template-columns: auto;
   }
+}
+
+.aside {
+  grid-area: Aside;
+}
+@media only screen and (max-width: 800px) {
   .aside {
       display: none;
   }
@@ -33,12 +34,18 @@
 
 .vitrine {
   grid-area: Vitrine;
+  /* display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom:280px; */
+}
+.vitrine__group {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   position: relative;
   margin-bottom:280px;
-
 }
 .button__more{
   position: absolute;
@@ -46,8 +53,10 @@
   text-decoration: none;
   color: #fff;
   background-color: #ffa015;
+  border: none;
   padding: 15px 80px;
   text-transform: uppercase;
+  cursor: pointer;
 
 }
 
@@ -57,4 +66,15 @@
   text-align: center;
   font-size: 12px;
   padding: 10px 0;
+}
+
+/* Transition */
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
 }
