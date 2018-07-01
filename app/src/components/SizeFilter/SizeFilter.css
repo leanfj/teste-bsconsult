@@ -1,12 +1,12 @@
-.sizefilter form{
-  display: flex;
-  flex-wrap: wrap;
-}
 .sizefilter__titulo {
   text-transform: uppercase;
   font-size: 20px;
 }
 
+.sizefilter__box{
+  display: flex;
+  flex-wrap: wrap;
+}
 .sizefilter__input input {
   display: none;
 }

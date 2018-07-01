@@ -7,11 +7,13 @@ const api = axios.create({
 export const listData = () => api.get();
 
 export const filterByColor = (argCor) => api.get(`?${argCor}`);
+export const filterBySize = (argSize) => api.get(`?${argSize}`);
 
 
 const Apis = {
   listData,
-  filterByColor
+  filterByColor,
+  filterBySize
 };
 
 export default Apis;

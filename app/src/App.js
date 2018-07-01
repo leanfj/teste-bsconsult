@@ -33,52 +33,66 @@ class App extends Component {
   }
 
   loadByColor = (argColor) => {
-      let result = "";
-      for (let prop in argColor) {
-        result += "cor="+prop+"&";
+    let resultColor = "";
+    for (let prop in argColor) {
+      resultColor += "cor=" + prop + "&";
+    }
+    Apis.filterByColor(resultColor).then(
+      response => {
+        this.setState({
+          dados: response.data,
+          limit: 6
+        });
       }
-      Apis.filterByColor(result).then(
-        response => {
-          this.setState({
-            dados: response.data,
-            limit: 6
-          });
-        }
-      );
+    );
+  }
+  loadBySize = (argSize) => {
+    let resultSize = "";
+    for (let prop in argSize) {
+      resultSize += "tamanhos_like=" + prop + "&";
+    }
+
+    Apis.filterBySize(resultSize).then(
+      response => {
+        this.setState({
+          dados: response.data,
+          limit: 6
+        });
+      }
+    );
   }
 
-  loadMore = () =>{
+  loadMore = () => {
     this.setState({
       limit: this.state.limit + 3
     });
     if (this.state.dados.length <= this.state.limit) {
       alert('Sem produtos para carregar');
     }
-
   }
 
   render() {
     return (
       <div className="app">
         <header className="container">
-          <Header/>
+          <Header />
         </header>
-        <hr className="separador"/>
+        <hr className="separador" />
         <section className="container sub-header">
-          <SubHeader/>
+          <SubHeader />
         </section>
         <main className="container main">
           <aside className="aside">
-            <ColorFilter onSelectColor={this.loadByColor}/>
-            <SizeFilter/>
-            <PriceFilter/>
+            <ColorFilter onSelectColor={this.loadByColor} />
+            <SizeFilter onSelectSize={this.loadBySize}/>
+            <PriceFilter />
           </aside>
           <section className="vitrine">
             {this.state.dados.slice(0, this.state.limit).map((produto, index) => {
               return <VitrineItem key={index} Id={produto.id} Nome={produto.nome} Imagem={produto.imagem} Preco={produto.preco} Desconto={produto.valorDesconto} />
             })}
             <button className="button__more" onClick={this.loadMore}>Carregar Mais</button>
-       
+
           </section>
         </main>
         <footer className="footer">
