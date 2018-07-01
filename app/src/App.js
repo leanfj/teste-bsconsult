@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { CSSTransitionGroup } from 'react-transition-group';
+// import { CSSTransitionGroup } from 'react-transition-group';
 import Header from './components/Header/Header'
 import SubHeader from './components/SubHeader/SubHeader';
 import ColorFilter from './components/ColorFilter/ColorFilter';
@@ -10,16 +10,22 @@ import VitrineItem from './components/VitrineItem/VitrineItem';
 
 import Apis from './api/Api'
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       dados: [],
+      consultDataColor: "",
+      consultDataSize: "",
+      consultDataPrice: "",
       limit: 6
+
     }
   }
   componentDidMount() {
     this.loadContent();
+    
   }
 
   loadContent = () => {
@@ -37,29 +43,67 @@ class App extends Component {
     for (let prop in argColor) {
       resultColor += "cor=" + prop + "&";
     }
-    Apis.filterByColor(resultColor).then(
-      response => {
-        this.setState({
-          dados: response.data,
-          limit: 6
-        });
-      }
-    );
+    this.setState({
+      consultDataColor: resultColor
+    });
+    console.log(this.state.consultDataColor);
+
+    
+    // Apis.filterByColor(resultColor).then(
+    //   response => {
+    //     this.setState({
+    //       dados: response.data,
+    //       limit: 6
+    //     });
+    //   }
+    // );
   }
+
   loadBySize = (argSize) => {
     let resultSize = "";
     for (let prop in argSize) {
       resultSize += "tamanhos_like=" + prop + "&";
     }
+    this.setState({
+      consultDataSize: resultSize
+    });
+    console.log(this.state.consultDataSize);
+    // Apis.filterBySize(resultSize).then(
+    //   response => {
+    //     this.setState({
+    //       dados: response.data,
+    //       limit: 6
+    //     });
+    //   }
+    // );
+  }
 
-    Apis.filterBySize(resultSize).then(
-      response => {
-        this.setState({
-          dados: response.data,
-          limit: 6
-        });
+  loadByPrice = (argPriceMin, argPriceMax) => {
+    // console.log(argPriceMin, argPriceMax);
+    let resultPrice = "";
+    for (let prop in argPriceMin) {
+      resultPrice += "preco_gte="+ argPriceMin[prop] + "&";
+      // console.log(argPrice[prop]);
+    }
+    for (let prop in argPriceMax) {
+      if(parseInt(argPriceMax[prop]) !== 0 ) {
+        resultPrice += "preco_lte="+ argPriceMax[prop] + "&";
       }
-    );
+      // console.log(argPrice[prop]);
+    }
+    // console.log(resultPrice);
+    this.setState({
+      consultDataPrice: resultPrice
+    });
+    console.log(this.state.consultDataPrice);
+    // Apis.filterByPrice(resultPrice).then(
+    //   response => {
+    //     this.setState({
+    //       dados: response.data,
+    //       limit: 6
+    //     });
+    //   }
+    // );
   }
 
   loadMore = () => {
@@ -84,8 +128,8 @@ class App extends Component {
         <main className="container main">
           <aside className="aside">
             <ColorFilter onSelectColor={this.loadByColor} />
-            <SizeFilter onSelectSize={this.loadBySize}/>
-            <PriceFilter />
+            <SizeFilter onSelectSize={this.loadBySize} />
+            <PriceFilter onSelectPrice={this.loadByPrice} />
           </aside>
           <section className="vitrine">
             {this.state.dados.slice(0, this.state.limit).map((produto, index) => {

@@ -20,21 +20,21 @@ class ColorFilter extends Component {
   }
 
   componentDidMount () {
-    Apis.listData().then(
-      response => {
-        this.setState({
-          colors: response.data,
-        });
-        let colors = [];
-        response.data.forEach((element,index) => {
-          colors.push(element.cor);
-        });
-        let unique = colors.filter((value, index, self) =>{
-          return self.indexOf(value) === index;
-        });
-        this.setState({colors: unique});
-      }
-    );
+    // Apis.listData().then(
+    //   response => {
+    //     this.setState({
+    //       colors: response.data,
+    //     });
+    //     let colors = [];
+    //     response.data.forEach((element,index) => {
+    //       colors.push(element.cor);
+    //     });
+    //     let unique = colors.filter((value, index, self) =>{
+    //       return self.indexOf(value) === index;
+    //     });
+    //     this.setState({colors: unique});
+    //   }
+    // );
 
   }
   isChecked = (e) => {
@@ -50,11 +50,11 @@ class ColorFilter extends Component {
 
     this.props.onSelectColor(itensChecked);
   }
-
-  loadMoreColors = (e) => {
-    e.preventDefault();
-    console.log('click');
-  }
+  
+  // loadMoreColors = (e) => {
+  //   e.preventDefault();
+  //   console.log('click');
+  // }
 
   render() {
 
