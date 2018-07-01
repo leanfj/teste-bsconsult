@@ -11,18 +11,22 @@ class ColorFilter extends Component {
       cinza: false,
       laranja: false,
       verde: false,
-      itemChecked: {}
+      itensChecked: {}
     }
   }
 
   isChecked = (e) => {
-    console.log(e.target.name);
-    let itemChecked = this.state.itemChecked;
-    itemChecked[e.target.name] = e.target.checked;
+    let itensChecked = this.state.itensChecked;
+    itensChecked[e.target.name] = e.target.name;
     this.setState({
       [e.target.name]: e.target.checked,
-      itemChecked
+      itensChecked
     });
+    if (!e.target.checked) {
+      delete itensChecked[e.target.name];
+    } 
+
+    this.props.onSelectColor(itensChecked);
   }
 
   render() {

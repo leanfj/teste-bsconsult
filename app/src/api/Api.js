@@ -6,7 +6,7 @@ const api = axios.create({
 
 export const listProducts = () => api.get();
 
-export const filterByColor = (argCor) => api.get(`?cor=${argCor}`);
+export const filterByColor = (argCor) => api.get(`?${argCor}`);
 
 const Apis = {
   listProducts,

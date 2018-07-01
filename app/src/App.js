@@ -33,10 +33,17 @@ class App extends Component {
   }
 
   loadByColor = (argColor) => {
-      Apis.filterByColor(argColor).then(
+      console.log(argColor);
+      let result = "";
+      for (let prop in argColor) {
+        result += "cor="+prop+"&";
+      }
+      console.log(result);
+      Apis.filterByColor(result).then(
         response => {
           this.setState({
             dados: response.data,
+            limit: 6
           });
         }
       );
@@ -64,7 +71,7 @@ class App extends Component {
         </section>
         <main className="container main">
           <aside className="aside">
-            <ColorFilter/>
+            <ColorFilter onSelectColor={this.loadByColor}/>
             <SizeFilter/>
             <PriceFilter/>
           </aside>
