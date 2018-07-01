@@ -4,7 +4,7 @@ import './VitrineItem.css';
 class VitrineItem extends Component {
   render() {
     return (
-      <div className="vitrineitem">
+      <div className="vitrineitem showItem">
         <img src={this.props.Imagem} alt="Foto produto" className="vitrineitem__image"/>
         <h4 className="vitrineitem__nome">{this.props.Nome}</h4>
         <div className="vitrineitem__bottom">

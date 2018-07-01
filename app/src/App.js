@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { CSSTransitionGroup } from 'react-transition-group'
+import { CSSTransitionGroup } from 'react-transition-group';
 import Header from './components/Header/Header'
 import SubHeader from './components/SubHeader/SubHeader';
 import ColorFilter from './components/ColorFilter/ColorFilter';
@@ -15,16 +15,15 @@ class App extends Component {
     super(props);
     this.state = {
       dados: [],
-      limit: 9
+      limit: 6
     }
   }
   componentDidMount() {
     this.loadContent();
-    this.loadMore();
   }
 
   loadContent = () => {
-    Apis.listProducts(this.state.limit).then(
+    Apis.listProducts().then(
       response => {
         this.setState({
           dados: response.data,
@@ -33,9 +32,24 @@ class App extends Component {
     );
   }
 
+  loadByColor = (argColor) => {
+      Apis.filterByColor(argColor).then(
+        response => {
+          this.setState({
+            dados: response.data,
+          });
+        }
+      );
+  }
+
   loadMore = () =>{
-    this.setState({ limit: this.state.limit + 3 });
-    this.loadContent();
+    this.setState({
+      limit: this.state.limit + 3
+    });
+    if (this.state.dados.length <= this.state.limit) {
+      alert('Sem produtos para carregar');
+    }
+
   }
 
   render() {
@@ -54,17 +68,11 @@ class App extends Component {
             <SizeFilter/>
             <PriceFilter/>
           </aside>
-          <section className="vitrine">
-              <CSSTransitionGroup 
-              transitionName="example"
-              transitionEnterTimeout={300}
-              transitionLeaveTimeout={300}
-              className="vitrine__group">
-              {this.state.dados.map((produto, index) => {
-                return <VitrineItem key={index} Id={produto.id} Nome={produto.nome} Imagem={produto.imagem} Preco={produto.preco} Desconto={produto.valorDesconto} />
-              })}
-              <button className="button__more" onClick={this.loadMore}>Carregar Mais</button>
-              </CSSTransitionGroup>
+          <section className="vitrine vitrine__group">
+            {this.state.dados.slice(0, this.state.limit).map((produto, index) => {
+              return <VitrineItem key={index} Id={produto.id} Nome={produto.nome} Imagem={produto.imagem} Preco={produto.preco} Desconto={produto.valorDesconto} />
+            })}
+            <button className="button__more" onClick={this.loadMore}>Carregar Mais</button>
        
           </section>
         </main>
