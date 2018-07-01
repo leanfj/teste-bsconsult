@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   loadContent = () => {
-    Apis.listProducts().then(
+    Apis.listData().then(
       response => {
         this.setState({
           dados: response.data,
@@ -33,12 +33,10 @@ class App extends Component {
   }
 
   loadByColor = (argColor) => {
-      console.log(argColor);
       let result = "";
       for (let prop in argColor) {
         result += "cor="+prop+"&";
       }
-      console.log(result);
       Apis.filterByColor(result).then(
         response => {
           this.setState({
@@ -75,7 +73,7 @@ class App extends Component {
             <SizeFilter/>
             <PriceFilter/>
           </aside>
-          <section className="vitrine vitrine__group">
+          <section className="vitrine">
             {this.state.dados.slice(0, this.state.limit).map((produto, index) => {
               return <VitrineItem key={index} Id={produto.id} Nome={produto.nome} Imagem={produto.imagem} Preco={produto.preco} Desconto={produto.valorDesconto} />
             })}

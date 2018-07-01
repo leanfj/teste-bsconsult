@@ -34,19 +34,14 @@
 
 .vitrine {
   grid-area: Vitrine;
-  /* display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  position: relative;
-  margin-bottom:280px; */
-}
-.vitrine__group {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   position: relative;
   margin-bottom:280px;
+  align-items: flex-end;
 }
+
 .button__more{
   position: absolute;
   bottom: -109px;
