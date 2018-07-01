@@ -10,22 +10,22 @@ import VitrineItem from './components/VitrineItem/VitrineItem';
 
 import Apis from './api/Api'
 
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       dados: [],
-      consultDataColor: "",
-      consultDataSize: "",
-      consultDataPrice: "",
-      limit: 6
-
+      limit: 6,
+      filterConsultColor: "",
+      filterConsultSize: "",
+      filterConsultPrice: "",
+      cart: 0
     }
+    
   }
   componentDidMount() {
     this.loadContent();
-    
+
   }
 
   loadContent = () => {
@@ -39,24 +39,24 @@ class App extends Component {
   }
 
   loadByColor = (argColor) => {
+    console.log(argColor);
     let resultColor = "";
     for (let prop in argColor) {
       resultColor += "cor=" + prop + "&";
     }
-    this.setState({
-      consultDataColor: resultColor
-    });
-    console.log(this.state.consultDataColor);
+    console.log(resultColor);
+    this.setState({filterConsultColor: resultColor});
 
-    
-    // Apis.filterByColor(resultColor).then(
-    //   response => {
-    //     this.setState({
-    //       dados: response.data,
-    //       limit: 6
-    //     });
-    //   }
-    // );
+    Apis.filterByColor(resultColor).then(
+      response => {
+        this.setState({
+          dados: response.data,
+          limit: 6
+        });
+      }
+    );
+
+
   }
 
   loadBySize = (argSize) => {
@@ -64,48 +64,44 @@ class App extends Component {
     for (let prop in argSize) {
       resultSize += "tamanhos_like=" + prop + "&";
     }
-    this.setState({
-      consultDataSize: resultSize
-    });
-    console.log(this.state.consultDataSize);
-    // Apis.filterBySize(resultSize).then(
-    //   response => {
-    //     this.setState({
-    //       dados: response.data,
-    //       limit: 6
-    //     });
-    //   }
-    // );
+    this.setState({filterConsultSize: resultSize});
+
+
+    Apis.filterBySize(resultSize).then(
+      response => {
+        this.setState({
+          dados: response.data,
+          limit: 6
+        });
+      }
+    );
   }
 
   loadByPrice = (argPriceMin, argPriceMax) => {
-    // console.log(argPriceMin, argPriceMax);
     let resultPrice = "";
     for (let prop in argPriceMin) {
-      resultPrice += "preco_gte="+ argPriceMin[prop] + "&";
-      // console.log(argPrice[prop]);
+      resultPrice += "preco_gte=" + argPriceMin[prop] + "&";
     }
     for (let prop in argPriceMax) {
-      if(parseInt(argPriceMax[prop]) !== 0 ) {
-        resultPrice += "preco_lte="+ argPriceMax[prop] + "&";
+      if (parseInt(argPriceMax[prop], 10) !== 0) {
+        resultPrice += "preco_lte=" + argPriceMax[prop] + "&";
       }
-      // console.log(argPrice[prop]);
     }
-    // console.log(resultPrice);
-    this.setState({
-      consultDataPrice: resultPrice
-    });
-    console.log(this.state.consultDataPrice);
-    // Apis.filterByPrice(resultPrice).then(
-    //   response => {
-    //     this.setState({
-    //       dados: response.data,
-    //       limit: 6
-    //     });
-    //   }
-    // );
+    this.setState({filterConsultPrice: resultPrice});
+    Apis.filterByPrice(resultPrice).then(
+      response => {
+        this.setState({
+          dados: response.data,
+          limit: 6
+        });
+      }
+    );
   }
-
+  addCart = () => {
+    this.setState({
+      cart: this.state.cart + 1
+    });
+  }
   loadMore = () => {
     this.setState({
       limit: this.state.limit + 3
@@ -119,7 +115,7 @@ class App extends Component {
     return (
       <div className="app">
         <header className="container">
-          <Header />
+          <Header Cart={this.state.cart}/>
         </header>
         <hr className="separador" />
         <section className="container sub-header">
@@ -133,7 +129,7 @@ class App extends Component {
           </aside>
           <section className="vitrine">
             {this.state.dados.slice(0, this.state.limit).map((produto, index) => {
-              return <VitrineItem key={index} Id={produto.id} Nome={produto.nome} Imagem={produto.imagem} Preco={produto.preco} Desconto={produto.valorDesconto} />
+              return <VitrineItem key={index} Id={produto.id} Nome={produto.nome} Imagem={produto.imagem} Preco={produto.preco} Desconto={produto.valorDesconto} AddCart={this.addCart}/>
             })}
             <button className="button__more" onClick={this.loadMore}>Carregar Mais</button>
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ColorFilter.css';
 
-import Apis from '../../api/Api'
+// import Apis from '../../api/Api'
 
 
 class ColorFilter extends Component {
@@ -10,12 +10,9 @@ class ColorFilter extends Component {
     this.state = {
       amarelo: false,
       azul: false,
-      branco: false,
-      cinza: false,
-      laranja: false,
       verde: false,
-      itensChecked: {},
-      colors: []
+      branco: false,
+      itensChecked: {}
     }
   }
 
@@ -51,11 +48,6 @@ class ColorFilter extends Component {
     this.props.onSelectColor(itensChecked);
   }
   
-  // loadMoreColors = (e) => {
-  //   e.preventDefault();
-  //   console.log('click');
-  // }
-
   render() {
 
     return (
@@ -77,7 +69,7 @@ class ColorFilter extends Component {
           <input type="checkbox" name="branco" id="branco" onChange={this.isChecked} />
           Branco
         </label>
-        <button className="colorfilter__vermais" onClick={(e) =>this.loadMoreColors(e)}>Ver todas as core
+        <button className="colorfilter__vermais" >Ver todas as core
           <i className="fas fa-angle-down" /> </button>
       </div>
     );

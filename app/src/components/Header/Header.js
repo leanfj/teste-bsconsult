@@ -10,7 +10,7 @@ class Header extends Component {
         <img src={logo} className="header__logo" alt="logo" />
         <button className="header__bag">
           <i className="fas fa-shopping-bag"></i>
-          <span className="bag__quantidade">3</span>
+          <span className="bag__quantidade">{this.props.Cart}</span>
         </button>
       </div>
     );

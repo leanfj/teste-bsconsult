@@ -13,7 +13,7 @@ class VitrineItem extends Component {
             R$ {this.props.Preco} 
           </div>
           <span className="vitrineitem__parcelas"> até 5x de R$ {this.props.Desconto ? (this.props.Preco - (this.props.Desconto * this.props.Preco) / 100 ) / 5 : this.props.Preco / 5 }</span>
-          <i className="fas fa-shopping-cart vitrineitem__carrinho"></i>
+          <i className="fas fa-shopping-cart vitrineitem__carrinho" onClick={this.props.AddCart}></i>
         </div>
       </div>
 
