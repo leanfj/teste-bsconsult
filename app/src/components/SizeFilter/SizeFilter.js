@@ -34,6 +34,7 @@ class SizeFilter extends Component {
     } 
 
     this.props.onSelectSize(itensChecked);
+    this.props.onSelect();
   }
   render () {
     return (

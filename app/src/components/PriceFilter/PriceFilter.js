@@ -31,6 +31,7 @@ class PriceFilter extends Component {
     } 
 
     this.props.onSelectPrice(itensCheckedMin, itensCheckedMax);
+    this.props.onSelect();
   }
 
   render(){

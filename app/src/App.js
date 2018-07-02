@@ -38,25 +38,36 @@ class App extends Component {
     );
   }
 
+  loadByFilters = () => {
+    let consult = this.state.filterConsultColor;
+    consult += this.state.filterConsultSize;
+    consult += this.state.filterConsultPrice;
+    Apis.filterData(consult).then(
+      response => {
+        this.setState({
+          dados: response.data,
+        });
+        // console.log(response.data);
+      }
+    );
+  }
+
   loadByColor = (argColor) => {
-    console.log(argColor);
+    // console.log(argColor);
     let resultColor = "";
     for (let prop in argColor) {
       resultColor += "cor=" + prop + "&";
     }
-    console.log(resultColor);
-    this.setState({filterConsultColor: resultColor});
-
-    Apis.filterByColor(resultColor).then(
-      response => {
-        this.setState({
-          dados: response.data,
-          limit: 6
-        });
-      }
-    );
-
-
+    this.state.filterConsultColor = resultColor;
+    console.log(this.state.filterConsultColor);
+    // Apis.filterByColor(resultColor).then(
+    //   response => {
+    //     this.setState({
+    //       dados: response.data,
+    //       limit: 6
+    //     });
+    //   }
+    // );
   }
 
   loadBySize = (argSize) => {
@@ -64,17 +75,17 @@ class App extends Component {
     for (let prop in argSize) {
       resultSize += "tamanhos_like=" + prop + "&";
     }
-    this.setState({filterConsultSize: resultSize});
+    this.state.filterConsultSize = resultSize;
+    console.log(this.state.filterConsultSize);
 
-
-    Apis.filterBySize(resultSize).then(
-      response => {
-        this.setState({
-          dados: response.data,
-          limit: 6
-        });
-      }
-    );
+    // Apis.filterBySize(resultSize).then(
+    //   response => {
+    //     this.setState({
+    //       dados: response.data,
+    //       limit: 6
+    //     });
+    //   }
+    // );
   }
 
   loadByPrice = (argPriceMin, argPriceMax) => {
@@ -87,21 +98,25 @@ class App extends Component {
         resultPrice += "preco_lte=" + argPriceMax[prop] + "&";
       }
     }
-    this.setState({filterConsultPrice: resultPrice});
-    Apis.filterByPrice(resultPrice).then(
-      response => {
-        this.setState({
-          dados: response.data,
-          limit: 6
-        });
-      }
-    );
+    this.state.filterConsultPrice = resultPrice;
+    console.log(this.state.filterConsultPrice);
+    
+    // Apis.filterByPrice(resultPrice).then(
+    //   response => {
+    //     this.setState({
+    //       dados: response.data,
+    //       limit: 6
+    //     });
+    //   }
+    // );
   }
+
   addCart = () => {
     this.setState({
       cart: this.state.cart + 1
     });
   }
+
   loadMore = () => {
     this.setState({
       limit: this.state.limit + 3
@@ -123,9 +138,9 @@ class App extends Component {
         </section>
         <main className="container main">
           <aside className="aside">
-            <ColorFilter onSelectColor={this.loadByColor} />
-            <SizeFilter onSelectSize={this.loadBySize} />
-            <PriceFilter onSelectPrice={this.loadByPrice} />
+            <ColorFilter onSelectColor={this.loadByColor} onSelect={this.loadByFilters} />
+            <SizeFilter onSelectSize={this.loadBySize} onSelect={this.loadByFilters} />
+            <PriceFilter onSelectPrice={this.loadByPrice} onSelect={this.loadByFilters} />
           </aside>
           <section className="vitrine">
             {this.state.dados.slice(0, this.state.limit).map((produto, index) => {

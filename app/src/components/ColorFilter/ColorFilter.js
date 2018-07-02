@@ -12,7 +12,8 @@ class ColorFilter extends Component {
       azul: false,
       verde: false,
       branco: false,
-      itensChecked: {}
+      itensChecked: {},
+      filterConsultColor: ""
     }
   }
 
@@ -46,6 +47,7 @@ class ColorFilter extends Component {
     } 
 
     this.props.onSelectColor(itensChecked);
+    this.props.onSelect();
   }
   
   render() {
