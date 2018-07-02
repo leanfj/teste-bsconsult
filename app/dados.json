@@ -160,7 +160,7 @@
       "imagem": "./img-produto/produto6.jpg",
       "cor": "verde",
       "tamanhos": ["pequeno", "medio" ],
-      "preco": 596,
+      "preco": 400,
       "valorDesconto": "",
       "diponivel": true,
       "tipo": "vestido"
@@ -182,7 +182,7 @@
       "imagem": "./img-produto/produto9.jpg",
       "cor": "verde",
       "tamanhos": ["pequeno", "medio" ],
-      "preco": 596,
+      "preco": 300,
       "valorDesconto": "",
       "diponivel": true,
       "tipo": "vestido"
@@ -193,7 +193,7 @@
       "imagem": "./img-produto/produto6.jpg",
       "cor": "verde",
       "tamanhos": ["pequeno", "medio" ],
-      "preco": 596,
+      "preco": 385,
       "valorDesconto": "",
       "diponivel": true,
       "tipo": "vestido"
@@ -226,7 +226,7 @@
       "imagem": "./img-produto/produto6.jpg",
       "cor": "verde",
       "tamanhos": ["pequeno", "grande" ],
-      "preco": 596,
+      "preco": 499,
       "valorDesconto": "",
       "diponivel": true,
       "tipo": "vestido"

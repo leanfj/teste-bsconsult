@@ -19,7 +19,10 @@ class App extends Component {
       filterConsultColor: "",
       filterConsultSize: "",
       filterConsultPrice: "",
-      cart: 0
+      filterOrder: "",
+      cart: 0,
+      isMobileCloseClicked: false,
+      isMobileOpenClicked: false
     }
     
   }
@@ -42,24 +45,39 @@ class App extends Component {
     let consult = this.state.filterConsultColor;
     consult += this.state.filterConsultSize;
     consult += this.state.filterConsultPrice;
+    consult += this.state.filterOrder;
     Apis.filterData(consult).then(
       response => {
         this.setState({
           dados: response.data,
         });
-        // console.log(response.data);
       }
     );
   }
 
+  loadByOrder = (argOrder) => {
+    let resultOrder = ""
+    if (argOrder){
+      resultOrder = `_sort=preco&_order=${argOrder}`;
+    } else {
+      resultOrder = `_sort=id&_order=asc`
+    }
+
+    // console.log(resultOrder);
+    // eslint-disable-next-line
+    this.state.filterOrder = resultOrder;
+    
+  }
+
   loadByColor = (argColor) => {
-    // console.log(argColor);
     let resultColor = "";
     for (let prop in argColor) {
       resultColor += "cor=" + prop + "&";
     }
+    // eslint-disable-next-line
     this.state.filterConsultColor = resultColor;
-    console.log(this.state.filterConsultColor);
+    
+    
     // Apis.filterByColor(resultColor).then(
     //   response => {
     //     this.setState({
@@ -75,9 +93,8 @@ class App extends Component {
     for (let prop in argSize) {
       resultSize += "tamanhos_like=" + prop + "&";
     }
+    // eslint-disable-next-line
     this.state.filterConsultSize = resultSize;
-    console.log(this.state.filterConsultSize);
-
     // Apis.filterBySize(resultSize).then(
     //   response => {
     //     this.setState({
@@ -98,8 +115,8 @@ class App extends Component {
         resultPrice += "preco_lte=" + argPriceMax[prop] + "&";
       }
     }
+    // eslint-disable-next-line
     this.state.filterConsultPrice = resultPrice;
-    console.log(this.state.filterConsultPrice);
     
     // Apis.filterByPrice(resultPrice).then(
     //   response => {
@@ -125,6 +142,12 @@ class App extends Component {
       alert('Sem produtos para carregar');
     }
   }
+  mobileClose = () => {
+    this.setState({isMobileOpenClicked: false});
+  }
+  mobileOpen = () => {
+    this.setState({isMobileOpenClicked: true});
+  }
 
   render() {
     return (
@@ -134,10 +157,11 @@ class App extends Component {
         </header>
         <hr className="separador" />
         <section className="container sub-header">
-          <SubHeader />
+          <SubHeader onSelecOrder={this.loadByOrder} onSelect={this.loadByFilters} onFilterClick={this.mobileOpen}/>
         </section>
         <main className="container main">
-          <aside className="aside">
+          <aside className={"aside " + (this.state.isMobileOpenClicked ? "mobileaside__open showMenu" : "mobileaseide__close hideMenu")}>
+            <span className="mobile__close" onClick={this.mobileClose}><i className="fas fa-window-close"></i></span>
             <ColorFilter onSelectColor={this.loadByColor} onSelect={this.loadByFilters} />
             <SizeFilter onSelectSize={this.loadBySize} onSelect={this.loadByFilters} />
             <PriceFilter onSelectPrice={this.loadByPrice} onSelect={this.loadByFilters} />

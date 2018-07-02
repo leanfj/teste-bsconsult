@@ -9,7 +9,9 @@
   background-color: #ffa015;
   margin: 0;
 }
-
+.app {
+  position: relative;
+}
 .main {
   display: grid;
   grid-template-areas: 'Aside Vitrine';
@@ -26,9 +28,64 @@
 .aside {
   grid-area: Aside;
 }
+.mobile__close {
+  display: none;
+}
 @media only screen and (max-width: 800px) {
   .aside {
-      display: none;
+    grid-area: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+    background-color: #fff;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width: 70%;
+    box-shadow:1px 1px 10px 0px #7c7c7c7c;
+  }
+  .mobileaside__open {
+    display: block;
+  }
+  .mobileaside__close {
+    display: none;
+  }
+  .mobile__close {
+    position: absolute;
+    display: block;
+    font-size: 25px;
+    right: 15px;
+    top: 10px;
+  }
+  .mobile__close--menu {
+    display: block
+  }
+  /* Animations */
+
+  .showMenu {
+    animation: showMenu .2s ease-in forwards;
+  }
+
+  @keyframes showMenu {
+    0% {
+      transform: translatex(-200px);
+    }
+    100% {
+      transform: translatex(0);
+    }
+  }
+  .hideMenu {
+    animation: hideMenu .5s ease-out forwards;
+  }
+
+  @keyframes hideMenu {
+    0% {
+      transform: translatex(0);
+    }
+    100% {
+      transform: translatex(-100px);
+    }
   }
 }
 
@@ -63,13 +120,3 @@
   padding: 10px 0;
 }
 
-/* Transition */
-
-.example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
