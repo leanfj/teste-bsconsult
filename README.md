@@ -9,6 +9,7 @@
   Para rodar o projeto como desenvolvedor:
 
   ```
+
     //Fazer o clone ou download do projeto
     //navegue para pasta app
     cd app/
@@ -18,6 +19,7 @@
 
     //Rodando o projeto local
     npm run startAll
+
 
   ```
 ##### Requisitos Obrigatórios:
