@@ -1,3 +1,25 @@
+### Minhas considerações.
+
+  Projeto foi desenvolvido em React utilizando a ferramenta [creat-react-app](https://github.com/facebook/create-react-app)
+  Requisições gerenciadas com [axios](https://github.com/axios/axios)
+  Como servidor Rest utilizei [json-server](https://github.com/typicode/json-server)
+
+  Como pre requisito ter [node e npm](https://nodejs.org/en/) intalados
+
+  Para rodar o projeto como desenvolvedor:
+
+  ```
+    //Fazer o clone ou download do projeto
+    //navegue para pasta app
+    cd app/
+
+    //instalação de dependências
+    npm install
+
+    //Rodando o projeto local
+    npm run startAll
+
+  ```
 ##### Requisitos Obrigatórios:
 
 * Html5, css3;

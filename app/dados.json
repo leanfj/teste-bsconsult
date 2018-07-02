@@ -330,27 +330,5 @@
       "diponivel": true,
       "tipo": "vestido"
     }
-  ],
-  "cores": [
-    "amarelo",
-    "azul",
-    "branco",
-    "cinza",
-    "laranja",
-    "preto",
-    "vermelho"
-  ],
-  "tamanhos": [
-    "pequeno",
-    "medio",
-    "grande",
-    "gg",
-    "u",
-    "36",
-    "38",
-    "40",
-    "42",
-    "44",
-    "46"
   ]
 }
